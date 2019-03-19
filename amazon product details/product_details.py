@@ -41,7 +41,7 @@ for i in name:
     
     
     
-    
+#2nd way to do so    
     
     
 #import all the required modules
