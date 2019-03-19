@@ -18,12 +18,12 @@ s.connect(('127.0.0.1', port))
 
 print (s.recv(1024))
 data_1=input()
-str(data_1).encode("utf-8")
-s.send(data_1)
+bdata_1=bytes(data_1, 'utf-8')
+s.send(bdata_1)
 
 print (s.recv(1024))
 data_2=input()
-str(data_2).encode("utf-8")
-s.send(data_2)
+bdata_2=bytes(data_2, 'utf-8')
+s.send(bdata_2)
 
 s.close()
