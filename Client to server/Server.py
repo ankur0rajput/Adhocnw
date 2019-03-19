@@ -4,34 +4,36 @@ Created on Mon Mar 18 07:47:48 2019
 
 @author: hp
 """
-
 import socket
-serv=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-serv.bind(('0.0.0.0', 8080))
-serv.listen(5)
-while True:
-    conn,addr =serv.accept()
-    from_client=''
-    while True:
-        attempts=0
-        while attempts<3:
-            username=input('username?')
-            password=input('password?')
-            if username=='correctusername'and password=='correctpassword':
-                print("you are in!")
-                data=conn.recv(4096)
-                if not data:
-                    break
-                from_client += data
-                print(from_client)
-        
-                conn.send("I am a server \n")                
-            else:
-                attempts += 1
-                print("incorrect!")
-                if attempts==3:
-                    print("too many attempts")            
-    conn.close()
-    print("client disconnected")
+
+s = socket.socket()
+port = 12345
+
+s.bind(('', port))
+
+s.listen(5)
+
+while True: 
+
+# Establish connection with client. 
+    c, addr = s.accept()	 
+    #print ('Got connection from', addr) 
+
+# send a thank you message to the client. 
+    c.send('Enter the email')
+    data_1=c.recv(1024)
+    data_1=data_1.decode("utf-8")
     
-    
+    if data_1=="ankur":
+        c.send('Enter the password')
+        data_2=c.recv(1024)
+        data_2=data_2.decode("utf-8")
+        if data_2=="kumar":
+            c.send("connection established")
+            c.close()
+        else:
+            c.send("not valid")
+            c.close()
+    else:
+        c.send("not valid")
+        c.close() 
