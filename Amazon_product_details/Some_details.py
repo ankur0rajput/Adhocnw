@@ -5,7 +5,7 @@ Created on Fri Mar  18 10:18:01 2019
 
 @author: ankur
 """
-
+#Baic way to extract deatails
 import re
 from urllib.request import urlopen
 from bs4 import BeautifulSoup    
