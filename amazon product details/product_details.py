@@ -61,9 +61,7 @@ if not sys.warnoptions:
 
 #uniqueue id of user's searched product   or we can directly use the url to access the page  
 asin_array=['B0756CYWWD'] 
-#The ASIN Number will be between the dp/ and another /
-start = 'dp/'
-end = '/'
+
 
 
 #declare the header.
